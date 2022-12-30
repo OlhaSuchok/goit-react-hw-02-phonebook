@@ -1,6 +1,3 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
 import { ContactListItem, ContactsList } from './ContactList.styled';
 
 export function ContactList({ contacts }) {
