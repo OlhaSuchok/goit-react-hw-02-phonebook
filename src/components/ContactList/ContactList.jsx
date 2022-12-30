@@ -6,7 +6,6 @@ export function ContactList({ contacts }) {
     <ContactsList>
       {contacts.map(contacts => (
         <ContactListItem key={contacts.id}>
-          {' '}
           {contacts.name}: {contacts.number}
         </ContactListItem>
       ))}

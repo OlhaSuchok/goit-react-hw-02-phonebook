@@ -4,7 +4,7 @@ import { Box } from 'components/Box/Box';
 import ContactForm from './ContactForm/ContactForm';
 import { ContactFormTitle } from './ContactFormTitle/ContactFormTitle';
 import { ContactList } from './ContactList/ContactList';
-import ContactFilter from './ContactFilter/ContactFilter';
+import { ContactFilter } from './ContactFilter/ContactFilter';
 
 export class App extends Component {
   state = {
@@ -21,8 +21,12 @@ export class App extends Component {
     }));
   };
 
+  changeFilter = event => {
+    this.setState({ filter: event.target.value });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <div
         style={{
@@ -42,7 +46,7 @@ export class App extends Component {
         >
           <ContactFormTitle>PhoneBook</ContactFormTitle>
           <ContactForm onHandleSubmit={this.handleSubmit} />
-          <ContactFilter />
+          <ContactFilter value={filter} onChange={this.changeFilter} />
           {contacts.length > 0 && <ContactFormTitle>Contacts</ContactFormTitle>}
           {contacts.length > 0 && <ContactList contacts={contacts} />}
         </Box>
