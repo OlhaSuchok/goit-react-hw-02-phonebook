@@ -27,6 +27,15 @@ export class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    const normalizedFilter = this.state.filter.toLowerCase();
+    const visivleContact = this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+
+    console.log(normalizedFilter);
+    console.log(contacts);
+    console.log(visivleContact);
+
     return (
       <div
         style={{
@@ -48,7 +57,9 @@ export class App extends Component {
           <ContactForm onHandleSubmit={this.handleSubmit} />
           <ContactFilter value={filter} onChange={this.changeFilter} />
           {contacts.length > 0 && <ContactFormTitle>Contacts</ContactFormTitle>}
-          {contacts.length > 0 && <ContactList contacts={contacts} />}
+          {contacts.length > 0 && (
+            <ContactList contacts={contacts} filter={visivleContact} />
+          )}
         </Box>
       </div>
     );

@@ -5,7 +5,7 @@ export function ContactFilter({ value, onChange }) {
   return (
     <FindText>
       Find contacts by name
-      <FindValue value={value} onChange={onChange}></FindValue>
+      <FindValue type="text" value={value} onChange={onChange}></FindValue>
     </FindText>
   );
 }
