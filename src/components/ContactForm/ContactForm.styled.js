@@ -8,7 +8,7 @@ export const ContactFormWrapper = styled.form`
 `;
 
 export const ContactFormText = styled.label`
-  padding-bottom: ${props => props.theme.space[3]}px;
+  margin-bottom: ${props => props.theme.space[3]}px;
   color: ${props => props.theme.colors.mainText};
   font-size: ${props => props.theme.fontSizes.m};
   font-weight: ${props => props.theme.fontWeights.text};
@@ -24,7 +24,7 @@ export const ContactFormField = styled.input`
 export const ContactFormButton = styled.button`
   align-self: center;
   margin-top: ${props => props.theme.space[3]}px;
-  margin-bottom: ${props => props.theme.space[4]}px;
+  margin-bottom: ${props => props.theme.space[3]}px;
   padding: 6px 10px;
   color: ${props => props.theme.colors.accent};
   background-color: ${props => props.theme.colors.primary};

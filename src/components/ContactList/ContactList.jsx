@@ -1,20 +1,23 @@
-import { ContactListItem, ContactsList } from './ContactList.styled';
+import {
+  ContactListItem,
+  ContactsList,
+  ContactListButtonDelete,
+} from './ContactList.styled';
 
-export function ContactList({ contacts, filter }) {
-  console.log(contacts);
+export function ContactList({ contacts, onRemoveBtn }) {
   return (
     <ContactsList>
-      {filter
-        ? filter.map(filter => (
-            <ContactListItem key={filter.id}>
-              {filter.name}: {filter.number}
-            </ContactListItem>
-          ))
-        : contacts.map(contacts => (
-            <ContactListItem key={contacts.id}>
-              {contacts.name}: {contacts.number}
-            </ContactListItem>
-          ))}
+      {contacts.map(contact => (
+        <ContactListItem key={contact.id}>
+          {contact.name}: {contact.number}
+          <ContactListButtonDelete
+            type="button"
+            onClick={() => onRemoveBtn(contact.id)}
+          >
+            Delete
+          </ContactListButtonDelete>
+        </ContactListItem>
+      ))}
     </ContactsList>
   );
 }
