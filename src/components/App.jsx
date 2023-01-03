@@ -43,12 +43,17 @@ export class App extends Component {
     }));
   };
 
-  render() {
+  applyFilter = () => {
     const { contacts, filter } = this.state;
-    const normalizedFilter = this.state.filter.toLowerCase();
-    const visivleContact = this.state.contacts.filter(contact =>
+    const normalizedFilter = filter.toLowerCase();
+    const visivleContact = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
+    return visivleContact;
+  };
+
+  render() {
+    const { contacts, filter } = this.state;
 
     return (
       <div
@@ -73,7 +78,7 @@ export class App extends Component {
           {contacts.length > 0 && <ContactFormTitle>Contacts</ContactFormTitle>}
           {contacts.length > 0 && (
             <ContactList
-              contacts={visivleContact}
+              contacts={this.applyFilter()}
               onRemoveBtn={this.onRemoveBtn}
             />
           )}

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   ContactListItem,
   ContactsList,
@@ -21,3 +22,8 @@ export function ContactList({ contacts, onRemoveBtn }) {
     </ContactsList>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  onRemoveBtn: PropTypes.func.isRequired,
+};
